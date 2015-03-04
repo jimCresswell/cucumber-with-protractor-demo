@@ -2,11 +2,8 @@
 
 ## Todo
 
-* Install Protractor.
-* Get webdriver-manager and webdriver working.
-* Hook up Cucumber step defs to Protractor.
+* Jenkins compatible reporter.
 
 ## To investigate
 
 * Cucumber.js World object for sharing state between steps.
-* Does using Cucumber with Protractor still allow for the automatic waiting for the dirty checking to complete?

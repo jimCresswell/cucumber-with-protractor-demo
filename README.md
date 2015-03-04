@@ -25,12 +25,12 @@ To start the application
 
 * Make sure JDK is installed. On Windows you will also have to set the PATH variable [http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ].
 
-In a terminal 
+In a terminal, to start WebDriver
 * To update WebDriver versions `node .\node_modules\protractor\bin\webdriver-manager update`.
 * To start a WebDriver server * `node .\node_modules\protractor\bin\webdriver-manager start`.
 
-In  different terminal
-* `node /node_modules/cucumber/bin/cucumber.js` - doesn't work yet!
+In  different terminal, to start the app
+* `node server.js`.
 
 In yet another terminal
 * `node .\node_modules\protractor\bin\protractor protractor-conf.js`

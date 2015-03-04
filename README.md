@@ -6,6 +6,12 @@
 * Clone this repo and change to the repo directory.
 * `npm install`
 
+## Running
+
+To start the application
+* `node server.js`
+* In a browser navigate to http://localhost:3000/app/index.html
+
 ## Testing
 
 ### To run the unit tests

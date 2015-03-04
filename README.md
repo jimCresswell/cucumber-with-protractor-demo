@@ -23,7 +23,7 @@ To start the application
 
 *WIP*
 
-* Make sure JDK is installed.
+* Make sure JDK is installed. On Windows you will also have to set the PATH variable [http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ].
 
 In a terminal 
 * To update WebDriver versions `node .\node_modules\protractor\bin\webdriver-manager update`.

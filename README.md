@@ -22,4 +22,15 @@ To start the application
 ### To run the end-to-end tests
 
 *WIP*
-* `node /node_modules/cucumber/bin/cuumber.js`
+
+* Make sure JDK is installed.
+
+In a terminal 
+* To update WebDriver versions `node .\node_modules\protractor\bin\webdriver-manager update`.
+* To start a WebDriver server * `node .\node_modules\protractor\bin\webdriver-manager start`.
+
+In  different terminal
+* `node /node_modules/cucumber/bin/cucumber.js` - doesn't work yet!
+
+Scratch
+* `node .\node_modules\protractor\bin\protractor --version`

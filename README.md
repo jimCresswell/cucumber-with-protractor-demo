@@ -1,4 +1,4 @@
-# Experimnting with Cucumber driving Protractor
+# Experimenting with Cucumber driving Protractor
 
 ## Installation
 

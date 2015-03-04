@@ -21,4 +21,5 @@ To start the application
 
 ### To run the end-to-end tests
 
-* TODO!
+*WIP*
+* `node /node_modules/cucumber/bin/cuumber.js`

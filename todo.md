@@ -2,7 +2,9 @@
 
 ## Todo
 
+* Page object pattern.
 * Jenkins compatible reporter.
+* Gulp tasks to start the app server, start the webriver server and run the Protractor tests.
 
 ## To investigate
 

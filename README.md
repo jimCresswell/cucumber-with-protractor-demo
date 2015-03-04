@@ -33,4 +33,4 @@ In  different terminal
 * `node /node_modules/cucumber/bin/cucumber.js` - doesn't work yet!
 
 Scratch
-* `node .\node_modules\protractor\bin\protractor --version`
+* `node .\node_modules\protractor\bin\protractor protractor-conf.js`

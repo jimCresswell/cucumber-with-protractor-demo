@@ -9,3 +9,4 @@
 ## To investigate
 
 * Cucumber.js World object for sharing state between steps.
+* Does using Cucumber with Protractor still allow for the automatic waiting for the dirty checking to complete?

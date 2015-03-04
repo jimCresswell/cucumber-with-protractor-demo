@@ -21,7 +21,7 @@ To start the application
 
 ### To run the end-to-end tests
 
-*WIP*
+*WIP - working but messy.*
 
 * Make sure JDK is installed. On Windows you will also have to set the PATH variable [http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ].
 
@@ -32,5 +32,5 @@ In a terminal
 In  different terminal
 * `node /node_modules/cucumber/bin/cucumber.js` - doesn't work yet!
 
-Scratch
+In yet another terminal
 * `node .\node_modules\protractor\bin\protractor protractor-conf.js`

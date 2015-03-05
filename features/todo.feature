@@ -4,6 +4,7 @@ Feature: Todo list
   I want to be able to add and read todos
   So that I can remember what I am supposed to do later
 
+  @this-is-a-tag
   Scenario: Adding a todo
     Given I am on the app homepage.
     When I add a todo called "hello world".

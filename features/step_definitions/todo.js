@@ -1,13 +1,18 @@
 var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised'); // https://github.com/domenic/chai-as-promised/
 
-// https://github.com/domenic/chai-as-promised/
-var chaiAsPromised = require('chai-as-promised');
+
 chai.use(chaiAsPromised);
-
 var expect = chai.expect;
 
-module.exports = function() {
+
+module.exports = myStepDefinitions;
+
+
+function myStepDefinitions() {
     this.Given(/^I am on the app homepage\.?$/, function (done) {
+        // The "done" or "callback" function has usefull methods
+        // such as "pending" and "fail".
 
         // TODO: Create a page object factory function and a homepage object convenience object.
         var homepageUrl = 'http://localhost:3000/app/index.html';
@@ -43,4 +48,4 @@ module.exports = function() {
             done();     
         });
     });
-};
+}

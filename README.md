@@ -34,4 +34,8 @@ In yet another terminal
 * `node .\node_modules\protractor\bin\protractor protractor-conf.js`
 
 ## Notes
-* Cucumber.js doesn't yet support profiles or output files or multiple formatters or a HTML formatter.
+* Cucumber.js doesn't yet support
+  * Profiles
+  * Multiple formatters
+  * Output files (Should be resolved in Cucumber.js v0.5 [https://github.com/cucumber/cucumber-js/issues?q=is%3Aopen+is%3Aissue+milestone%3A%220.5+major+features%22]).
+  * A HTML formatter, again supported in version 0.5.

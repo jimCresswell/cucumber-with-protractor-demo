@@ -1,3 +1,6 @@
+/**
+ * Step definitions.
+ */
 'use strict';
 
 // Require and configure the assertion libraries.

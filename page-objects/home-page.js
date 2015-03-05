@@ -1,4 +1,5 @@
 // Note that browser and element are globals defined by Potractor. 
+// Should page objects have state? Could this be a plain object and so avoid instantiation?
 'use strict';
 
 function HomePage() {};

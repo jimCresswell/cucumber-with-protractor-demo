@@ -34,6 +34,8 @@
     "chai-as-promised": "^4.2.0",
     "cucumber": "^0.4.8",
     "express": "^4.12.2",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.9.2",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "Todo-list",
+    "name": "Todo list",
+    "description": "As a user of the todo list\r\nI want to be able to add and read todos\r\nSo that I can remember what I am supposed to do later",
+    "line": 2,
+    "keyword": "Feature",
+    "uri": "C:\\Users\\jimcr_000\\Documents\\GitHub\\cucumber-with-protractor-demo\\features\\todo.feature",
+    "elements": [
+      {
+        "name": "Adding a todo",
+        "id": "Todo-list;adding-a-todo",
+        "line": 8,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Before ",
+            "hidden": true,
+            "result": {
+              "duration": 883962,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I am on the app homepage.",
+            "line": 9,
+            "keyword": "Given ",
+            "result": {
+              "duration": 2737178804,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I add a todo called \"hello world\".",
+            "line": 10,
+            "keyword": "When ",
+            "result": {
+              "duration": 21925858,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see it added to the todo list.",
+            "line": 11,
+            "keyword": "Then ",
+            "result": {
+              "duration": 884422463,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  }
+]

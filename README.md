@@ -1,5 +1,10 @@
 # Experimenting with Cucumber driving Protractor
 
+## Todo
+
+* Page object pattern.
+* Gulp tasks to start the app server, start the webriver server and run the Protractor tests.
+
 ## Installation
 
 * Make sure [Node.js](http://nodejs.org/) is installed.
@@ -14,11 +19,6 @@ To start the application
 
 ## Testing
 
-### To run the unit tests
-
-* Install Karma-cli globally, `npm install -g karma-cli`.
-* `karma start test/config/karma.conf.js`. The unit tests will try to run in Firefox and Chrome by default.
-
 ### To run the end-to-end tests
 
 * Make sure JDK is installed. On Windows you will also have to set the PATH variable http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ.
@@ -32,6 +32,11 @@ In  different terminal, to start the app
 
 In yet another terminal
 * `node .\node_modules\protractor\bin\protractor protractor-conf.js`
+
+### To run the unit tests
+I left these in here to highlight the difference in intention between developer facing code tests and product facing end-to-end tests.
+* Install Karma-cli globally, `npm install -g karma-cli`.
+* `karma start test/config/karma.conf.js`. The unit tests will try to run in Firefox and Chrome by default.
 
 ## Notes
 * Cucumber.js doesn't yet support

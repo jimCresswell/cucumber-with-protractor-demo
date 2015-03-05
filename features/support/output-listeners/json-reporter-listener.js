@@ -1,3 +1,5 @@
+'use strict';
+
 // This json output may allow Jenkins HTML reports to be generated with the Jenkins Cucumber Test Result plugin.
 // https://wiki.jenkins-ci.org/display/JENKINS/Cucumber+Test+Result+Plugin
 module.exports = function JsonOutputHook() {

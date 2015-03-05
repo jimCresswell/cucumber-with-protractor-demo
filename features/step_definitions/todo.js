@@ -1,3 +1,5 @@
+'use strict';
+
 // Require and configure the assertion libraries.
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised'); // https://github.com/domenic/chai-as-promised/

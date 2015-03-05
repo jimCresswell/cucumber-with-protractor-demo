@@ -1,10 +1,5 @@
 # Experimenting with Cucumber driving Protractor
 
-## Todo
-
-* Page object pattern.
-* Gulp tasks to start the app server, start the webriver server and run the Protractor tests.
-
 ## Installation
 
 * Make sure [Node.js](http://nodejs.org/) is installed.
@@ -13,7 +8,7 @@
 
 ## Running
 
-To start the application
+It's the AngularJS demo TodoMVC app, but if you really want to run it on its own
 * `node server.js`
 * In a browser navigate to http://localhost:3000/app/index.html
 
@@ -23,6 +18,13 @@ To start the application
 
 * Make sure JDK is installed. On Windows you will also have to set the PATH variable http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ.
 
+#### Using Gulp
+
+* Make sure 'Gulp' is intalled globally, `npm install -g gulp`.
+* `gulp`.
+
+#### Manually
+
 In a terminal, to start WebDriver
 * To update WebDriver versions `node .\node_modules\protractor\bin\webdriver-manager update`.
 * To start a WebDriver server * `node .\node_modules\protractor\bin\webdriver-manager start`.
@@ -30,7 +32,7 @@ In a terminal, to start WebDriver
 In  different terminal, to start the app
 * `node server.js`.
 
-In yet another terminal
+In yet another terminal run Protractor.
 * `node .\node_modules\protractor\bin\protractor protractor-conf.js`
 
 ### To run the unit tests

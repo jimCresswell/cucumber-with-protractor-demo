@@ -1,3 +1,5 @@
+var exec = require('child_process').exec;
+
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 
@@ -12,8 +14,34 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(paths.js, ['lint']);
+    gulp.watch(paths.js, ['lint', 'protractor']);
+});
+ 
+gulp.task('serve-app', function(cb) {
+  exec('node server.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+  // Callback synchronously because this task doesn't complete.
+  cb();
+});
+
+gulp.task('start-webdriver', function(cb) {
+  exec('node node_modules/protractor/bin/webdriver-manager start', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+  // Callback synchronously because this task doesn't complete.
+  cb();
+});
+
+gulp.task('protractor', function(cb) {
+  exec('node node_modules/protractor/bin/protractor ./protractor-conf.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['lint', 'watch']);
+gulp.task('default', ['lint', 'serve-app', 'start-webdriver', 'protractor','watch']);

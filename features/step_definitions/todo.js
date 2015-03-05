@@ -4,7 +4,7 @@ var chaiAsPromised = require('chai-as-promised'); // https://github.com/domenic/
 chai.use(chaiAsPromised);
 var expect = chai.expect;
 
-var HomePageObject = require('../support/page-objects/home-page');
+var HomePageObject = require('../../page-objects/home-page');
 var homePage = new HomePageObject();
 
 module.exports = function myStepDefinitions() {

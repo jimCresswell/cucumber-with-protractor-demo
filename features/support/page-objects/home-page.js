@@ -1,15 +1,14 @@
 // Note that browser and element are globals defined by Potractor. 
 'use strict';
 
-var url = 'http://localhost:3000/app/index.html';
+function HomePage() {};
+module.exports = HomePage;
 
 // Unlike a WebElement the ElementFinder object understands the Angular digest loop.
 // http://angular.github.io/protractor/#/api?view=ElementFinder
 var newTodoEl = element(by.model('newTodo'));
 
-function HomePage() {};
-
-module.exports = HomePage;
+var url = 'http://localhost:3000/app/index.html';
 
 
 HomePage.prototype.get = function() {

@@ -1,51 +1,43 @@
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised'); // https://github.com/domenic/chai-as-promised/
 
-
 chai.use(chaiAsPromised);
 var expect = chai.expect;
 
+var HomePageObject = require('../support/page-objects/home-page');
+var homePage = new HomePageObject();
 
-module.exports = myStepDefinitions;
+module.exports = function myStepDefinitions() {
+    
+    this.Given(/^I am on the app home page\.?$/, function (done) {
+        var expectedTitle = 'AngularJS • TodoMVC';
 
-
-function myStepDefinitions() {
-    this.Given(/^I am on the app homepage\.?$/, function (done) {
-        // The "done" or "callback" function has usefull methods
-        // such as "pending" and "fail".
-
-        // TODO: Create a page object factory function and a homepage object convenience object.
-        var homepageUrl = 'http://localhost:3000/app/index.html';
-        var homepageTitle = 'AngularJS • TodoMVC';
-
-        browser.get(homepageUrl);
+        homePage.get();
 
         // Async page loading.
-        expect(browser.getTitle())
-            .to.eventually.equal(homepageTitle)
+        expect(homePage.getTitle())
+            .to.eventually.equal(expectedTitle)
             .notify(done);
     });
 
-    this.When(/^I add a todo called "([^"]*)"\.?$/, function (todoTitle, done) {
+    this.When(/^I add a todo called "([^"]*)"\.?$/, function (todoText, done) {
         var world = this;
-        var newTodoEl = element(by.model('newTodo'));
 
         // Share state on the world object. Could also have done this with a closure.
-        world.expectedTodoTitle = todoTitle;
+        world.expectedTodoText = todoText;
 
-        newTodoEl.sendKeys(todoTitle);
-        newTodoEl.sendKeys('\n');
+        homePage.createTodo(todoText);
+
         done();
     });
 
     this.Then(/^I should see it added to the todo list\.?$/, function (done) {
         var world = this;
 
-        // Unlike a WebElement the ElementFinder object understands the Angular digest loop.
-        // http://angular.github.io/protractor/#/api?view=ElementFinder
-        element(by.repeater('todo in todos').row(0)).element(by.tagName('label')).getText().then(function(todoTitle) {
-            expect(todoTitle).to.equal(world.expectedTodoTitle);
-            done();     
-        });
+        homePage.getFirstTodoText()
+            .then(function(todoText) {
+                expect(todoText).to.equal(world.expectedTodoText);
+                done();
+            });
     });
 }

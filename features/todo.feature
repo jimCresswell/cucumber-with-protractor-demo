@@ -6,6 +6,6 @@ Feature: Todo list
 
   @smoke
   Scenario: Adding a todo
-    Given I am on the app homepage.
+    Given I am on the app home page.
     When I add a todo called "hello world".
     Then I should see it added to the todo list.

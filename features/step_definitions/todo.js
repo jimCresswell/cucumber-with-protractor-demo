@@ -25,6 +25,7 @@ module.exports = function() {
         var world = this;
         var newTodoEl = element(by.model('newTodo'));
 
+        // Share state on the world object. Could also have done this with a closure.
         world.expectedTodoTitle = todoTitle;
 
         newTodoEl.sendKeys(todoTitle);

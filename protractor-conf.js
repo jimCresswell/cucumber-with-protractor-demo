@@ -7,7 +7,7 @@ exports.config = {
   },
   specs: ['features/*.feature'],
   cucumberOpts: {
-    format: 'pretty'
+    format: 'json'
   }
 };
 

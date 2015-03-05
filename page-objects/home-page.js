@@ -1,14 +1,14 @@
 /**
  * A page object for the example app home page.
  * 
- * Note that browser and element are globals defined by Potractor.
+ * Note that browser, element and by are globals defined by Potractor.
  */
-/* global browser, element */ 
+/* global browser, element, by */ 
 'use strict';
 
 
 // Should page objects have state? Could this be a plain object and so avoid instantiation?
-function HomePage() {};
+function HomePage() {}
 module.exports = HomePage;
 
 

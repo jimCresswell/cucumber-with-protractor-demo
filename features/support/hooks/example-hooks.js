@@ -1,8 +1,6 @@
 'use strict';
 
-module.exports = myHooks;
-
-function myHooks() {
+module.exports = function myHooks() {
 
   // Tagged hook
   this.Before('@smoke', function(callback) {
@@ -10,4 +8,4 @@ function myHooks() {
 
     callback();
   });
-}
+};

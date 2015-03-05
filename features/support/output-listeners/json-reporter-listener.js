@@ -12,8 +12,10 @@ module.exports = function JsonOutputHook() {
 
   JsonFormatter.log = function (json) {
     fs.writeFile(filepath, json, function (err) {
-      if (err) throw err;
-      console.log('json file location: ' + filepath);
+      if (err) {
+        throw err;
+      }
+      console.log('json report: ' + filepath);
     });
   };
 

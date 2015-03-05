@@ -21,7 +21,7 @@ To start the application
 
 ### To run the end-to-end tests
 
-* Make sure JDK is installed. On Windows you will also have to set the PATH variable [http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ].
+* Make sure JDK is installed. On Windows you will also have to set the PATH variable http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ.
 
 In a terminal, to start WebDriver
 * To update WebDriver versions `node .\node_modules\protractor\bin\webdriver-manager update`.
@@ -37,5 +37,5 @@ In yet another terminal
 * Cucumber.js doesn't yet support
   * Profiles
   * Multiple formatters
-  * Output files (Should be resolved in Cucumber.js v0.5 [https://github.com/cucumber/cucumber-js/issues?q=is%3Aopen+is%3Aissue+milestone%3A%220.5+major+features%22]).
+  * Output files (Should be resolved in Cucumber.js v0.5 https://github.com/cucumber/cucumber-js/issues?q=is%3Aopen+is%3Aissue+milestone%3A%220.5+major+features%22).
   * A HTML formatter, again supported in version 0.5.

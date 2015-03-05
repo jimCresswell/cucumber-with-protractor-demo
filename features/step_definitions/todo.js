@@ -7,7 +7,7 @@ chai.use(chaiAsPromised);
 var expect = chai.expect;
 
 module.exports = function() {
-    this.Given(/^I am on the app homepage$/, function (done) {
+    this.Given(/^I am on the app homepage\.?$/, function (done) {
 
         // TODO: Create a page object factory function and a homepage object convenience object.
         var homepageUrl = 'http://localhost:3000/app/index.html';
@@ -21,7 +21,7 @@ module.exports = function() {
             .notify(done);
     });
 
-    this.When(/^I add a todo called "([^"]*)"\.$/, function (todoTitle, done) {
+    this.When(/^I add a todo called "([^"]*)"\.?$/, function (todoTitle, done) {
         var world = this;
         var newTodoEl = element(by.model('newTodo'));
 
@@ -32,7 +32,7 @@ module.exports = function() {
         done();
     });
 
-    this.Then(/^I should see it added to the todo list\.$/, function (done) {
+    this.Then(/^I should see it added to the todo list\.?$/, function (done) {
         var world = this;
 
         // Unlike a WebElement the ElementFinder object understands the Angular digest loop.

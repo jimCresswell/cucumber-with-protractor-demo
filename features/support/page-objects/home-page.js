@@ -7,6 +7,7 @@ module.exports = HomePage;
 // Unlike a WebElement the ElementFinder object understands the Angular digest loop.
 // http://angular.github.io/protractor/#/api?view=ElementFinder
 var newTodoEl = element(by.model('newTodo'));
+var firstTodo = element(by.repeater('todo in todos').row(0));
 
 var url = 'http://localhost:3000/app/index.html';
 
@@ -26,5 +27,5 @@ HomePage.prototype.createTodo = function(todoText) {
 
 // Returns a promise.
 HomePage.prototype.getFirstTodoText = function() {
-	return element(by.repeater('todo in todos').row(0)).element(by.tagName('label')).getText();
+	return firstTodo.element(by.tagName('label')).getText();
 };

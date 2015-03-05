@@ -13,19 +13,19 @@ var url = 'http://localhost:3000/app/index.html';
 
 
 HomePage.prototype.get = function() {
-	browser.get(url);
+  browser.get(url);
 };
 
 HomePage.prototype.getTitle = function() {
-	return browser.getTitle();
+  return browser.getTitle();
 };
 
 HomePage.prototype.createTodo = function(todoText) {
-	newTodoEl.sendKeys(todoText);
-	newTodoEl.sendKeys('\n');
+  newTodoEl.sendKeys(todoText);
+  newTodoEl.sendKeys('\n');
 };
 
 // Returns a promise.
 HomePage.prototype.getFirstTodoText = function() {
-	return firstTodo.element(by.tagName('label')).getText();
+  return firstTodo.element(by.tagName('label')).getText();
 };

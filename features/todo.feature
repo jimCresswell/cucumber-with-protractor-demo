@@ -6,8 +6,16 @@ Feature: Todo list
   I want to be able to add and read todos
   So that I can remember what I am supposed to do later
 
-  @smoke
+  @home @smoke
   Scenario: Adding a todo
     Given I am on the app home page.
     When I add a todo called "hello world".
     Then I should see it added to the todo list.
+
+  @home @regression
+  Scenario: Adding multiple todos
+   	Given I am on the app home page.
+   	When I add multiple todos:
+   		| First todo  |
+   		| Second todo |
+   	Then then there should be that number of todos in the list.

@@ -3,6 +3,8 @@
  */
 'use strict';
 
+var _ = require('underscore');
+
 // Require and configure the assertion libraries.
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised'); // https://github.com/domenic/chai-as-promised/
@@ -20,9 +22,6 @@ module.exports = function myStepDefinitions() {
 
   this.Given(/^I am on the app home page\.?$/, function (done) {
     var expectedTitle = 'AngularJS • TodoMVC';
-
-    // Load the home page.
-    homePage.get();
 
     // The page loading is async so we need an async expectation
     // and an async 'done'.
@@ -43,14 +42,50 @@ module.exports = function myStepDefinitions() {
   });
 
 
+  // Use a data table. API here
+  // https://github.com/cucumber/cucumber-js/blob/master/lib/cucumber/ast/data_table.js
+  this.When(/^I add multiple todos:$/, function (table, done) {
+    var world = this;
+
+    // Array of arrays e.g.
+    // [ [ 'First todo' ], [ 'Second todo' ] ]
+    table = table.raw();
+
+    // Flatten array
+    // [ 'First todo', 'Second todo' ]
+    table = _.flatten(table);
+
+    table.forEach(function (todoText) {
+      homePage.createTodo(todoText);
+    });
+
+    world.expectedNumberOfTodos = table.length;
+
+    done(); 
+  });
+
+
   this.Then(/^I should see it added to the todo list\.?$/, function (done) {
     var world = this;
 
-    // The underlying getText method is async because it waits
-    // for Angular to settle down, and it returns a promise.
+    // The underlying getText method and and all DOM action methods
+    // (i.e. actions on 'elelement' objects) are asynchronous
+    // because they wait for the Angular digest loop to settle down,
+    // and so they return promises.
     homePage.getFirstTodoText()
       .then(function(todoText) {
         expect(todoText).to.equal(world.expectedTodoText);
+        done();
+      });
+  });
+
+
+  this.Then(/^then there should be that number of todos in the list\.?$/, function (done) {
+    var world = this;
+
+    homePage.getNumberOfTodos()
+      .then(function (numberOfTodos) {
+        expect(numberOfTodos).to.equal(world.expectedNumberOfTodos);
         done();
       });
   });

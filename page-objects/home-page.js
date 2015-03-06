@@ -13,9 +13,10 @@ var basePageObject = require('./page-base');
 
 // Functions defined separately so that docs can be preserved.
 var homePage = {
-	url: 'http://localhost:3000/app/index.html',
-	createTodo: createTodo,
-	getFirstTodoText: getFirstTodoText
+  url: 'http://localhost:3000/app/index.html',
+  createTodo: createTodo,
+  getFirstTodoText: getFirstTodoText,
+  getNumberOfTodos: getNumberOfTodos
 };
 
 // Mix in default page object properties and methods.
@@ -37,6 +38,12 @@ module.exports = homePage;
 var newTodoEl = element(by.model('newTodo'));
 var firstTodo = element(by.repeater('todo in todos').row(0));
 
+// Multiple elements are found with the 'all' metod which
+// like most (all?) methods on element objects returns a
+// promise.
+var toDoEls   = element.all(by.repeater('todo in todos'));
+
+
 
 /**
  * Create a new todo item.
@@ -51,8 +58,17 @@ function createTodo(todoText) {
 
 /**
  * Get a promise for the text content of the first todo item.
- * @return {promise} The text content of the first todo item.
+ * @return {promise}
  */
 function getFirstTodoText() {
   return firstTodo.element(by.tagName('label')).getText();
+}
+
+
+/**
+ * Get a promise for the number of todo elements on the page.
+ * @return {promise}
+ */
+function getNumberOfTodos() {
+  return toDoEls.count();
 }

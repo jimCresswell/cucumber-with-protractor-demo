@@ -1,3 +1,7 @@
+// Note, fo a cross-platform way to kill node processes, needed to end the Gulp tasks
+// if you want to use Gulp on your CI server, see
+// http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn.
+
 var exec = require('child_process').exec;
 
 var gulp = require('gulp');
@@ -45,3 +49,5 @@ gulp.task('protractor', ['serve-app', 'start-webdriver'], function(cb) {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['lint', 'protractor', 'watch']);
+
+

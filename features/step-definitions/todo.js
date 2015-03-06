@@ -26,7 +26,7 @@ module.exports = function myStepDefinitions() {
 
     // The page loading is async so we need an async expectation
     // and an async 'done'.
-    expect(homePage.getTitle())
+    expect(homePage.getPageTitle())
       .to.eventually.equal(expectedTitle)
       .notify(done);
   });

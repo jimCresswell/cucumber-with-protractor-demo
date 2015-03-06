@@ -7,6 +7,25 @@
 'use strict';
 
 
+var _ = require('underscore');
+var basePageObject = require('./page-base');
+
+
+// Functions defined separately so that docs can be preserved.
+var homePage = {
+	url: 'http://localhost:3000/app/index.html',
+	createTodo: createTodo,
+	getFirstTodoText: getFirstTodoText
+};
+
+// Mix in default page object properties and methods.
+_.defaults(homePage, basePageObject);
+
+// Export the home page object.
+module.exports = homePage;
+
+
+
 /**
  * Elements on the page.
  * 
@@ -15,34 +34,6 @@
  */
 var newTodoEl = element(by.model('newTodo'));
 var firstTodo = element(by.repeater('todo in todos').row(0));
-
-
-// Functions defined separately so that docs can be preserved.
-module.exports = {
-	url: 'http://localhost:3000/app/index.html',
-	get: get,
-	getTitle: getTitle,
-	createTodo: createTodo,
-	getFirstTodoText: getFirstTodoText
-};
-
-
-/**
- * Navigate to the home page.
- * @return {undefined}
- */
-function get() {
-  browser.get(this.url);
-}
-
-
-/**
- * Get the page title.
- * @return {string} page title.
- */
-function getTitle() {
-  return browser.getTitle();
-}
 
 
 /**

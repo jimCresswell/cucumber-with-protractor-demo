@@ -20,6 +20,7 @@ Feature: Todo list
       | Second todo |
     Then there should be that number of todos in the list.
 
+  @someOtherTag
   Scenario: Anther great scenario
     Given I am on the app home page.
     When Something is done.

@@ -19,6 +19,8 @@ var homePage = {
 };
 
 // Mix in default page object properties and methods.
+// Properties on the base page object will be copied
+// over if they are undefined on the current page object.
 _.defaults(homePage, basePageObject);
 
 // Export the home page object.

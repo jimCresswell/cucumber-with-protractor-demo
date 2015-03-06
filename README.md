@@ -45,4 +45,4 @@ I left these in here to highlight the difference in intention between developer 
   * Profiles
   * Multiple formatters
   * Output files (Should be resolved in Cucumber.js v0.5 https://github.com/cucumber/cucumber-js/issues?q=is%3Aopen+is%3Aissue+milestone%3A%220.5+major+features%22).
-  * A HTML formatter, again supported in version 0.5.
+  * Custom formatters. A HTML formatter and JUnit XML formatter, will be supported in version 0.5 https://github.com/cucumber/cucumber-js/pull/215.

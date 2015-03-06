@@ -3,8 +3,6 @@
  */
 'use strict';
 
-var _ = require('underscore');
-
 // Require and configure the assertion libraries.
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised'); // https://github.com/domenic/chai-as-promised/
@@ -47,13 +45,7 @@ module.exports = function myStepDefinitions() {
   this.When(/^I add multiple todos:$/, function (table, done) {
     var world = this;
 
-    // Array of arrays e.g.
-    // [ [ 'First todo' ], [ 'Second todo' ] ]
-    table = table.raw();
-
-    // Flatten array
-    // [ 'First todo', 'Second todo' ]
-    table = _.flatten(table);
+    table = world.flattenTable(table);
 
     table.forEach(function (todoText) {
       homePage.createTodo(todoText);

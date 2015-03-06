@@ -11,9 +11,8 @@ chai.use(chaiAsPromised);
 // Convenience.
 var expect = chai.expect;
 
-// Require and instantiate page objects.
-var HomePageObject = require('../../page-objects/home-page');
-var homePage = new HomePageObject();
+// Require page objects.
+var homePage = require('../../page-objects/home-page');
 
 // Define the step definitions
 module.exports = function myStepDefinitions() {

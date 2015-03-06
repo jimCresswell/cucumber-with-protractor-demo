@@ -7,11 +7,6 @@
 'use strict';
 
 
-// Should page objects have state? Could this be a plain object and so avoid instantiation?
-function HomePage() {}
-module.exports = HomePage;
-
-
 /**
  * Elements on the page.
  * 
@@ -22,28 +17,32 @@ var newTodoEl = element(by.model('newTodo'));
 var firstTodo = element(by.repeater('todo in todos').row(0));
 
 
-/**
- * Constants.
- */
-var url = 'http://localhost:3000/app/index.html';
+// Functions defined separately so that docs can be preserved.
+module.exports = {
+	url: 'http://localhost:3000/app/index.html',
+	get: get,
+	getTitle: getTitle,
+	createTodo: createTodo,
+	getFirstTodoText: getFirstTodoText
+};
 
 
 /**
  * Navigate to the home page.
  * @return {undefined}
  */
-HomePage.prototype.get = function() {
-  browser.get(url);
-};
+function get() {
+  browser.get(this.url);
+}
 
 
 /**
  * Get the page title.
  * @return {string} page title.
  */
-HomePage.prototype.getTitle = function() {
+function getTitle() {
   return browser.getTitle();
-};
+}
 
 
 /**
@@ -51,16 +50,16 @@ HomePage.prototype.getTitle = function() {
  * @param  {string} todoText
  * @return {undefined}
  */
-HomePage.prototype.createTodo = function(todoText) {
+function createTodo(todoText) {
   newTodoEl.sendKeys(todoText);
   newTodoEl.sendKeys('\n');
-};
+}
 
 
 /**
  * Get a promise for the text content of the first todo item.
  * @return {promise} The text content of the first todo item.
  */
-HomePage.prototype.getFirstTodoText = function() {
+function getFirstTodoText() {
   return firstTodo.element(by.tagName('label')).getText();
-};
+}

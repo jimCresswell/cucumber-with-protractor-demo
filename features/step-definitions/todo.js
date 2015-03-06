@@ -14,9 +14,8 @@ var expect = chai.expect;
 // Require page objects.
 var homePage = require('../../page-objects/home-page');
 
-// Define the step definitions
-module.exports = function myStepDefinitions() {
 
+module.exports = function myStepDefinitions() {
 
   this.Given(/^I am on the app home page\.?$/, function (done) {
     var expectedTitle = 'AngularJS • TodoMVC';
@@ -80,12 +79,13 @@ module.exports = function myStepDefinitions() {
 
   this.Then(/^there should be that number of todos in the list\.?$/, function (done) {
     var world = this;
+    checkNumberOfTodos(world.expectedNumberOfTodos, done);
+  });
 
-    homePage.getNumberOfTodos()
-      .then(function (numberOfTodos) {
-        expect(numberOfTodos).to.equal(world.expectedNumberOfTodos);
-        done();
-      });
+
+  this.Then(/^it should (.*) in the list\.$/, function (appearOrNot, done) {
+    var expectedNumberOfTodos = (appearOrNot === 'appear') ? 1 : 0;
+    checkNumberOfTodos(expectedNumberOfTodos, done);
   });
 
 
@@ -94,3 +94,13 @@ module.exports = function myStepDefinitions() {
     done.pending();
   });
 };
+
+
+/* Helper functions */
+function checkNumberOfTodos(expectedNumberOfTodos, done) {
+  homePage.getNumberOfTodos()
+    .then(function (numberOfTodos) {
+      expect(numberOfTodos).to.equal(expectedNumberOfTodos);
+      done();
+    });
+}

@@ -3,7 +3,7 @@
  * 
  * Note that browser, element and by are globals defined by Potractor.
  */
-/* global browser, element, by */ 
+/* global element, by */ 
 'use strict';
 
 

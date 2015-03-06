@@ -1,3 +1,6 @@
+'use strict';
+/* global browser */ 
+
 module.exports = {
   url: '',
   get: get,
@@ -10,11 +13,12 @@ module.exports = {
  * @return {undefined}
  */
 function get() {
+  /*jshint validthis:true */
   var url = this.url;
   if (!url) {
     throw new TypeError('A page object must have a URL defined in order to call \'get\'');
   }
-  browser.get(this.url);
+  browser.get(url);
 }
 
 

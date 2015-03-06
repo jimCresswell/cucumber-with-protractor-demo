@@ -65,6 +65,12 @@ module.exports = function myStepDefinitions() {
   });
 
 
+  this.When(/^Something is done\.$/, function (done) {
+    // Write code here that turns the phrase above into concrete actions
+    done.pending();
+  });
+
+
   this.Then(/^I should see it added to the todo list\.?$/, function (done) {
     var world = this;
 
@@ -80,7 +86,7 @@ module.exports = function myStepDefinitions() {
   });
 
 
-  this.Then(/^then there should be that number of todos in the list\.?$/, function (done) {
+  this.Then(/^there should be that number of todos in the list\.?$/, function (done) {
     var world = this;
 
     homePage.getNumberOfTodos()
@@ -88,5 +94,11 @@ module.exports = function myStepDefinitions() {
         expect(numberOfTodos).to.equal(world.expectedNumberOfTodos);
         done();
       });
+  });
+
+
+  this.Then(/^there should be a measurable result\.$/, function (done) {
+    // Write code here that turns the phrase above into concrete actions
+    done.pending();
   });
 };

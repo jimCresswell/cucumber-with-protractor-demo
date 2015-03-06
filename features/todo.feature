@@ -14,8 +14,13 @@ Feature: Todo list
 
   @home @regression
   Scenario: Adding multiple todos
-   	Given I am on the app home page.
-   	When I add multiple todos:
-   		| First todo  |
-   		| Second todo |
-   	Then then there should be that number of todos in the list.
+    Given I am on the app home page.
+    When I add multiple todos:
+      | First todo  |
+      | Second todo |
+    Then there should be that number of todos in the list.
+
+  Scenario: Anther great scenario
+    Given I am on the app home page.
+    When Something is done.
+    Then there should be a measurable result.

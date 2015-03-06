@@ -7,8 +7,6 @@ exports.config = {
   },
   specs: ['features/*.feature'],
 
-	resultJsonOutputFile: 'protractor-report.json',
-
   // See cucumberOpts in https://github.com/angular/protractor/blob/master/docs/referenceConf.js 
   cucumberOpts: {
     format: 'pretty'

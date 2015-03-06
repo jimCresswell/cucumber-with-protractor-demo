@@ -35,7 +35,7 @@ gulp.task('start-webdriver', function(cb) {
   cb();
 });
 
-gulp.task('protractor', ['start-webdriver'], function(cb) {
+gulp.task('protractor', ['serve-app', 'start-webdriver'], function(cb) {
   exec('node node_modules/protractor/bin/protractor ./protractor-conf.js', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
@@ -44,4 +44,4 @@ gulp.task('protractor', ['start-webdriver'], function(cb) {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['lint', 'serve-app', 'protractor', 'watch']);
+gulp.task('default', ['lint', 'protractor', 'watch']);

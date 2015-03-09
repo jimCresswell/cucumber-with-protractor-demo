@@ -18,7 +18,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(paths.js, ['lint', 'protractor']);
+    gulp.watch(paths.js, ['lint', 'protractor-watch']);
 });
  
 gulp.task('serve-app', function(cb) {
@@ -41,15 +41,22 @@ gulp.task('start-webdriver', function(cb) {
   setTimeout(cb, 1500);
 });
 
-gulp.task('protractor', ['serve-app', 'start-webdriver'], function(cb) {
+gulp.task('protractor-start', ['serve-app', 'start-webdriver'], function(cb) {
+  protractorTest(cb);
+});
+
+gulp.task('protractor-watch', function(cb) {
+  protractorTest(cb);
+});
+
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['lint', 'protractor-start', 'watch']);
+
+// Helper functions
+function protractorTest(cb) {
   exec('node node_modules/protractor/bin/protractor ./protractor-conf.js', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
   });
-});
-
-// The default task (called when you run `gulp` from cli)
-gulp.task('default', ['lint', 'protractor', 'watch']);
-
-
+}

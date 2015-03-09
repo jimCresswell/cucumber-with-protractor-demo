@@ -56,7 +56,7 @@ var homePage = {
    * @return {promise}
    */
   getAllTodoText: function getAllTodoText() {
-    toDoEls.map(function (todo) {
+    return toDoEls.map(function (todo) {
       return todo.element(by.tagName('label')).getText();
     });
   },

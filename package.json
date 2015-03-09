@@ -1,6 +1,6 @@
 {
   "name": "cucumber-with-protractor-demo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "Experimenting with Cucumber driving Protractor",
   "main": " ",
@@ -12,7 +12,11 @@
     "url": "https://github.com/jimCresswell/cucumber-with-protractor-demo.git"
   },
   "keywords": [
+    "Testing",
+    "BDD",
     "Cucumber",
+    "Cucumber.js",
+    "CucumberJS",
     "Protractor",
     "AngularJS"
   ],

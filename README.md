@@ -1,4 +1,4 @@
-# Experimenting with Cucumber driving Protractor
+# Experimenting with Protractor driving tests from Gherkin features via Cucumber.js. 
 
 ## Installation
 

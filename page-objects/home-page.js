@@ -52,6 +52,21 @@ var homePage = {
 
 
   /**
+   * Get a promise for the text content of all todo items.
+   * @return {promise}
+   */
+  getAllTodoText: function getAllTodoText() {
+
+    // Map over an array of promises for ElementFinders
+    // Map    https://github.com/angular/protractor/issues/392#issuecomment-33237672
+    // ElementFinder object    https://github.com/angular/protractor/blob/master/docs/locators.md#finding-multiple-elements
+    return toDoEls.map(function (todo) {
+      return todo.element(by.tagName('label')).getText();
+    });
+  },
+
+
+  /**
    * Get a promise for the number of todo elements on the page.
    * @return {promise}
    */

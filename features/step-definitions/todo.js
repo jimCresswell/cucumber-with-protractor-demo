@@ -14,6 +14,16 @@ var expect = chai.expect;
 // Require page objects.
 var homePage = require('../../page-objects/home-page');
 
+function addTodoText(todoText, done) {
+  // Share state on the world object. Could also have done this with a closure.
+  /*jshint validthis:true */
+  var world = this;
+  world.expectedTodoText = todoText;
+
+  homePage.createTodo(todoText);
+  done();
+}
+
 
 module.exports = function myStepDefinitions() {
 
@@ -28,15 +38,10 @@ module.exports = function myStepDefinitions() {
   });
 
 
-  this.When(/^I add a todo called "([^"]*)"\.?$/, function (todoText, done) {
-    
-    // Share state on the world object. Could also have done this with a closure.
-    var world = this;
-    world.expectedTodoText = todoText;
+  this.When(/^I add a todo called "([^"]*)"\.?$/, addTodoText);
 
-    homePage.createTodo(todoText);
-    done();
-  });
+
+  this.When(/^I add the todos\.?$/, addTodoText);
 
 
   // Use a data table. API here
@@ -72,6 +77,23 @@ module.exports = function myStepDefinitions() {
     homePage.getFirstTodoText()
       .then(function(todoText) {
         expect(todoText).to.equal(world.expectedTodoText);
+        done();
+      });
+  });
+
+
+  this.Then(/^I should see them added to the todo list\.$/, function (done) {
+    var world = this;
+
+    // Split the expected text string on new line to
+    // allow comparison to the array of todos taken
+    // from the UI.
+    var expectedTodoTextArray = world.expectedTodoText.split(/\n/);
+
+    // Use Chai deep equal to compare arrays.
+    homePage.getAllTodoText()
+      .then(function(todoTextArray) {
+        expect(todoTextArray).to.deep.equal(expectedTodoTextArray);
         done();
       });
   });

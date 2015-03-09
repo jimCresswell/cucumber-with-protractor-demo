@@ -27,7 +27,8 @@ gulp.task('serve-app', function(cb) {
     console.log(stderr);
   });
   // This task doesn't complete, but we do want a delay so that the server can start.
-  // Nb, th right way to do this is to create/use a plugin with events.
+  // Nb, th right way to do this is to create/use a plugin with events, have a look
+  // at gulp-express with express.run(), express.stop() for implementation ideas.
   setTimeout(cb, 1500);
 });
 

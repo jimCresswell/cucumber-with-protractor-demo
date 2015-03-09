@@ -85,16 +85,19 @@ module.exports = function myStepDefinitions() {
   this.Then(/^I should see them added to the todo list\.$/, function (done) {
     var world = this;
 
-    // The underlying getText method and and all DOM action methods
-    // (i.e. actions on 'elelement' objects) are asynchronous
-    // because they wait for the Angular digest loop to settle down,
-    // and so they return promises.
+    // Split the expected text string on new line to
+    // allow comparison to the array of todos taken
+    // from the UI.
+    var expectedTodoTextArray = world.expectedTodoText.split(/\n/);
+
+    // Use Chai deep equal to compare arrays.
     homePage.getAllTodoText()
-      .then(function(todoText) {
-        expect(todoText).to.equal(world.expectedTodoText);
+      .then(function(todoTextArray) {
+        expect(todoTextArray).to.deep.equal(expectedTodoTextArray);
         done();
       });
   });
+
 
   this.Then(/^there should be that number of todos in the list\.?$/, function (done) {
     var world = this;

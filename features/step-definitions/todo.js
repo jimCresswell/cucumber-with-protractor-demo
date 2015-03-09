@@ -14,6 +14,16 @@ var expect = chai.expect;
 // Require page objects.
 var homePage = require('../../page-objects/home-page');
 
+function addTodoText(todoText, done) {
+  // Share state on the world object. Could also have done this with a closure.
+  /*jshint validthis:true */
+  var world = this;
+  world.expectedTodoText = todoText;
+
+  homePage.createTodo(todoText);
+  done();
+}
+
 
 module.exports = function myStepDefinitions() {
 
@@ -28,15 +38,10 @@ module.exports = function myStepDefinitions() {
   });
 
 
-  this.When(/^I add a todo called "([^"]*)"\.?$/, function (todoText, done) {
-    
-    // Share state on the world object. Could also have done this with a closure.
-    var world = this;
-    world.expectedTodoText = todoText;
+  this.When(/^I add a todo called "([^"]*)"\.?$/, addTodoText);
 
-    homePage.createTodo(todoText);
-    done();
-  });
+
+  this.When(/^I add the todos\.?$/, addTodoText);
 
 
   // Use a data table. API here
@@ -76,6 +81,20 @@ module.exports = function myStepDefinitions() {
       });
   });
 
+
+  this.Then(/^I should see them added to the todo list\.$/, function (done) {
+    var world = this;
+
+    // The underlying getText method and and all DOM action methods
+    // (i.e. actions on 'elelement' objects) are asynchronous
+    // because they wait for the Angular digest loop to settle down,
+    // and so they return promises.
+    homePage.getAllTodoText()
+      .then(function(todoText) {
+        expect(todoText).to.equal(world.expectedTodoText);
+        done();
+      });
+  });
 
   this.Then(/^there should be that number of todos in the list\.?$/, function (done) {
     var world = this;

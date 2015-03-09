@@ -52,6 +52,17 @@ var homePage = {
 
 
   /**
+   * Get a promise for the text content of all todo items.
+   * @return {promise}
+   */
+  getAllTodoText: function getAllTodoText() {
+    toDoEls.map(function (todo) {
+      return todo.element(by.tagName('label')).getText();
+    });
+  },
+
+
+  /**
    * Get a promise for the number of todo elements on the page.
    * @return {promise}
    */

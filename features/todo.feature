@@ -12,10 +12,22 @@ Feature: Todo list
     Then I should see it added to the todo list.
 
 
+  @home @block-string
+  Scenario: Adding multiple todos in a block string
+    Given I am on the app home page.
+    When I add the todos
+    """
+      First todo
+      Second todo
+      Third todo
+    """
+    Then I should see them added to the todo list.
+
+
   # Data table.
   # Data tables: https://www.relishapp.com/cucumber/cucumber-js/docs/cucumber-tck/data-tables
-  @home @regression
-  Scenario: Adding multiple todos
+  @home @regression @data-table
+  Scenario: Adding multiple todos in a data table
     Given I am on the app home page.
     When I add multiple todos:
       | First todo  |

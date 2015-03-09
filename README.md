@@ -41,6 +41,7 @@ I left these in here to highlight the difference in intention between developer 
 * `karma start test/config/karma.conf.js`. The unit tests will try to run in Firefox and Chrome by default.
 
 ## Notes
+* It is possible to attach screenshots https://github.com/cucumber/cucumber-js/blob/master/features/attachments.feature .
 * Cucumber.js doesn't yet support
   * Profiles
   * Multiple formatters

@@ -12,15 +12,17 @@ Feature: Todo list
     Then I should see it added to the todo list.
 
 
+  # NB if you are comparing blocks of text beware of the file encoding
+  # UTF-8 and Unix line-endings are recommended.
   @home @block-string
   Scenario: Adding multiple todos in a block string
     Given I am on the app home page.
     When I add the todos
-    """
+      """
       First todo
       Second todo
       Third todo
-    """
+      """
     Then I should see them added to the todo list.
 
 

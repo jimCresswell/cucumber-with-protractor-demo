@@ -13,8 +13,7 @@ exports.config = {
   // tags: ['@smoke', '@otherTag, @thirdTag']
   // The Cucumber require path can be set with the 'require' property.
   cucumberOpts: {
-    format: 'pretty',
-    tags: '@block-string'
+    format: 'pretty'
   }
 };
 

@@ -26,8 +26,9 @@ gulp.task('serve-app', function(cb) {
     console.log(stdout);
     console.log(stderr);
   });
-  // Callback synchronously because this task doesn't complete.
-  cb();
+  // This task doesn't complete, but we do want a delay so that the server can start.
+  // Nb, th right way to do this is to create/use a plugin with events.
+  setTimeout(cb, 1500);
 });
 
 gulp.task('start-webdriver', function(cb) {
@@ -35,8 +36,9 @@ gulp.task('start-webdriver', function(cb) {
     console.log(stdout);
     console.log(stderr);
   });
-  // Callback synchronously because this task doesn't complete.
-  cb();
+  // This task doesn't complete, but we do want a delay so that the server can start.
+  // Nb, th right way to do this is to create/use a plugin with events.
+  setTimeout(cb, 1500);
 });
 
 gulp.task('protractor', ['serve-app', 'start-webdriver'], function(cb) {

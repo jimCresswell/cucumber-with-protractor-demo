@@ -14,16 +14,6 @@ var expect = chai.expect;
 // Require page objects.
 var homePage = require('../../page-objects/home-page');
 
-function addTodoText(todoText, done) {
-  // Share state on the world object. Could also have done this with a closure.
-  /*jshint validthis:true */
-  var world = this;
-  world.expectedTodoText = todoText;
-
-  homePage.createTodo(todoText);
-  done();
-}
-
 
 module.exports = function myStepDefinitions() {
 
@@ -61,6 +51,7 @@ module.exports = function myStepDefinitions() {
   });
 
 
+  // Deliberately pending step.
   this.When(/^Something is done\.$/, function (done) {
     // Write code here that turns the phrase above into concrete actions
     done.pending();
@@ -68,18 +59,14 @@ module.exports = function myStepDefinitions() {
 
 
   this.Then(/^I should see it added to the todo list\.?$/, function (done) {
-    var world = this;
-
-    // The underlying getText method and and all DOM action methods
-    // (i.e. actions on 'elelement' objects) are asynchronous
-    // because they wait for the Angular digest loop to settle down,
-    // and so they return promises.
-    homePage.getFirstTodoText()
-      .then(function(todoText) {
-        expect(todoText).to.equal(world.expectedTodoText);
-        done();
-      });
+    checkFirstTodoText(this.expectedTodoText, done);
   });
+
+
+  this.Then(/^I should see a todo called "([^"]*)"\.?$/, function (expectedTodoText, done) {
+    checkFirstTodoText(expectedTodoText, done);
+  });
+
 
 
   this.Then(/^I should see them added to the todo list\.$/, function (done) {
@@ -118,11 +105,37 @@ module.exports = function myStepDefinitions() {
 };
 
 
+
 /* Helper functions */
+
+
 function checkNumberOfTodos(expectedNumberOfTodos, done) {
   homePage.getNumberOfTodos()
     .then(function (numberOfTodos) {
       expect(numberOfTodos).to.equal(expectedNumberOfTodos);
+      done();
+    });
+}
+
+function addTodoText(todoText, done) {
+  // Share state on the world object. Could also have done this with a closure.
+  /*jshint validthis:true */
+  var world = this;
+  world.expectedTodoText = todoText;
+
+  homePage.createTodo(todoText);
+  done();
+}
+
+
+function checkFirstTodoText(expectedTodoText, done) {
+  // The underlying getText method and and all DOM action methods
+  // (i.e. actions on 'elelement' objects) are asynchronous
+  // because they wait for the Angular digest loop to settle down,
+  // and so they return promises.
+  homePage.getFirstTodoText()
+    .then(function(todoText) {
+      expect(todoText).to.equal(expectedTodoText);
       done();
     });
 }

@@ -52,9 +52,16 @@ Feature: Todo list
       |           | not appear    |
 
 
-  # Senario with pending tests.
-  @someOtherTag
+  # Senario with a pending step.
+  @home @somePendingTest
   Scenario: Anther great scenario
     Given I am on the app home page.
     When Something is done.
     Then there should be a measurable result.
+
+  # Senario with a failing step.
+  @home @someFailingTest
+  Scenario: Yet anther great scenario
+    Given I am on the app home page.
+    When I add a todo called "expected to fail".
+    Then I should see a todo called "something totally different".

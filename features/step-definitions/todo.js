@@ -75,7 +75,7 @@ module.exports = function myStepDefinitions() {
     // Split the expected text string on new line to
     // allow comparison to the array of todos taken
     // from the UI.
-    var expectedTodoTextArray = world.expectedTodoText.split(/\n/);
+    var expectedTodoTextArray = world.expectedTodoText.split(/\r?\n/);
 
     // Use Chai deep equal to compare arrays.
     homePage.getAllTodoText()

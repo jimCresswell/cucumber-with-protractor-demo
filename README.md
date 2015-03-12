@@ -1,5 +1,7 @@
 # Experimenting with Protractor driving tests from Gherkin features via Cucumber.js. 
 
+This is intended to function as a place to research and make notes on the use of Protractor to test Angular apps via the specification automation tool Cucumber in its Cucumber.js incarnation. The app under test (and associated unit tests) are a copy of the [TODO MVC Angular example](https://github.com/tastejs/todomvc/tree/master/examples/angularjs).
+
 There is an 'after' hook defined which will insert screenshots of failing tests into the Cucumber json report as base64 encoded attachment (Cucumber.js language) or embedding properties. These will be linked to and displayed in the Jenkins [Cucumber JVM reoprts](https://github.com/masterthought/jenkins-cucumber-jvm-reports-plugin-java) (the one with the HTML reports for the latest run rather than the more typically Jenkins like [Cucumber Test Result Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Cucumber+Test+Result+Plugin)).
 
 ## Installation

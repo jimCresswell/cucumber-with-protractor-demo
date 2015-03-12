@@ -20,6 +20,8 @@ It's the AngularJS demo TodoMVC app, but if you really want to run it on its own
 
 #### Using Gulp
 
+If you haven't yet installed/updated WebDriver run `gulp webdriver-update`.
+
 * Make sure 'Gulp' is intalled globally, `npm install -g gulp`.
 * `gulp`.
 

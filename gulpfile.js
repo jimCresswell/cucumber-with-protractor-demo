@@ -32,17 +32,25 @@ gulp.task('serve-app', function(cb) {
   setTimeout(cb, 1500);
 });
 
-gulp.task('start-webdriver', function(cb) {
+gulp.task('webdriver-update', function(cb) {
+  exec('node node_modules/protractor/bin/webdriver-manager update', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+gulp.task('webdriver-start', function(cb) {
   exec('node node_modules/protractor/bin/webdriver-manager start', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
   });
   // This task doesn't complete, but we do want a delay so that the server can start.
-  // Nb, th right way to do this is to create/use a plugin with events.
+  // Nb, the right way to do this is to create/use a plugin with events.
   setTimeout(cb, 1500);
 });
 
-gulp.task('protractor-start', ['serve-app', 'start-webdriver'], function(cb) {
+gulp.task('protractor-start', ['serve-app', 'webdriver-start'], function(cb) {
   protractorTest(cb);
 });
 

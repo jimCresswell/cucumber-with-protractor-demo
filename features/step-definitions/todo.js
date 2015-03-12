@@ -109,12 +109,28 @@ module.exports = function myStepDefinitions() {
 /* Helper functions */
 
 
-function checkNumberOfTodos(expectedNumberOfTodos, done) {
-  homePage.getNumberOfTodos()
-    .then(function (numberOfTodos) {
-      expect(numberOfTodos).to.equal(expectedNumberOfTodos);
+function checkFirstTodoText(expectedTodoText, done) {
+  // The underlying getText method and and all Protractor DOM
+  // action methods (i.e. actions on 'elelement' objects) are
+  // asynchronous, because they wait for the Angular digest
+  // loop to settle down, and return promises.
+  // Here the promise is handled explicitly in the check.
+  homePage.getFirstTodoText()
+    .then(function(todoText) {
+      expect(todoText).to.equal(expectedTodoText);
       done();
     });
+}
+
+function checkNumberOfTodos(expectedNumberOfTodos, done) {
+  // If using Chai-as-promised then promises for values can also
+  // be checked against using the 'eventually' property. Note
+  // the call to 'notify' with the Cucumber callback as an
+  // argument in order to signal step completion.
+  expect(homePage.getNumberOfTodos())
+    .to.eventually
+    .equal(expectedNumberOfTodos)
+    .notify(done);
 }
 
 function addTodoText(todoText, done) {
@@ -128,14 +144,4 @@ function addTodoText(todoText, done) {
 }
 
 
-function checkFirstTodoText(expectedTodoText, done) {
-  // The underlying getText method and and all DOM action methods
-  // (i.e. actions on 'elelement' objects) are asynchronous
-  // because they wait for the Angular digest loop to settle down,
-  // and so they return promises.
-  homePage.getFirstTodoText()
-    .then(function(todoText) {
-      expect(todoText).to.equal(expectedTodoText);
-      done();
-    });
-}
+

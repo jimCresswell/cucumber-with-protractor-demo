@@ -20,7 +20,7 @@ It's the AngularJS demo TodoMVC app, but if you really want to run it on its own
 
 #### Using Gulp
 
-If you haven't yet installed/updated WebDriver run `gulp webdriver-update`. If you are having proxy issues then either use the --proxy option or [define your proxy details as environment variables](https://github.com/angular/protractor/pull/966), you may also have to [ignore SSL errors](https://github.com/angular/protractor/blob/847e73961e52caa1537df269589d9cfe6373b986/bin/webdriver-manager#L89).
+If you haven't yet installed/updated WebDriver run `gulp webdriver-update`. If you are having proxy issues then either use the --proxy option or [define your proxy details as environment variables](https://github.com/angular/protractor/pull/966), you may also have to [ignore SSL errors](https://github.com/angular/protractor/blob/847e73961e52caa1537df269589d9cfe6373b986/bin/webdriver-manager#L89). If you need to install Selenium stand alone server run `node .\node_modules\protractor\bin\webdriver-manage update --standalone`.
 
 * Make sure 'Gulp' is intalled globally, `npm install -g gulp`.
 * `gulp`.

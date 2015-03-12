@@ -14,13 +14,13 @@ There is an 'after' hook defined which will insert screenshots of failing tests 
 
 It's the AngularJS demo TodoMVC app, but if you really want to run it on its own
 * `node server.js`
-* In a browser navigate to http://localhost:3000/app/index.html
+* In a browser navigate to <http://localhost:3000/app/index.html>.
 
 ## Testing
 
 ### To run the end-to-end tests
 
-* Make sure JDK is installed. On Windows you will also have to set the PATH variable http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ.
+* Make sure the JDK is installed. On Windows you will also have to set the PATH variable http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#CHDEBCCJ.
 
 #### Using Gulp
 

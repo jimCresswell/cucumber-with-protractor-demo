@@ -1,5 +1,7 @@
 # Experimenting with Protractor driving tests from Gherkin features via Cucumber.js. 
 
+There is an 'after' hook defined which will insert screenshots of failing tests into the Cucumber json report as base64 encoded attachment (Cucumber.js language) or embedding properties. These will be linked to and displayed in the Jenkins [Cucumber JVM reoprts](https://github.com/masterthought/jenkins-cucumber-jvm-reports-plugin-java) (the one with the HTML reports for the latest run rather than the more typically Jenkins like [Cucumber Test Result Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Cucumber+Test+Result+Plugin)).
+
 ## Installation
 
 * Make sure [Node.js](http://nodejs.org/) is installed.
@@ -38,7 +40,7 @@ In yet another terminal run Protractor.
 * `node .\node_modules\protractor\bin\protractor protractor-conf.js`
 
 ### To run the unit tests
-I left these in here to highlight the difference in intention between developer facing code tests and product facing end-to-end tests.
+I left these in here to highlight the difference in intention between developer facing code tests and product facing end-to-end tests, if you want to run them:
 * Install Karma-cli globally, `npm install -g karma-cli`.
 * `karma start test/config/karma.conf.js`. The unit tests will try to run in Firefox and Chrome by default.
 

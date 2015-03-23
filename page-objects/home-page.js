@@ -37,6 +37,9 @@ var homePage = {
    * @return {undefined}
    */
   createTodo: function createTodo(todoText) {
+
+    browser.sleep(10000);
+
     newTodoEl.sendKeys(todoText);
     newTodoEl.sendKeys('\n');
   },

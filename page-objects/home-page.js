@@ -37,6 +37,10 @@ var homePage = {
    * @return {undefined}
    */
   createTodo: function createTodo(todoText) {
+
+    // This is a hack
+    browser.sleep(1000);
+
     newTodoEl.sendKeys(todoText);
     newTodoEl.sendKeys('\n');
   },
